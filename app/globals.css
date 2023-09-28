@@ -10,7 +10,7 @@
   background-color: black;
   transform-origin: left;
   transform: scaleX(0);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease;
 }
 
 .nav-link-text:hover:after {

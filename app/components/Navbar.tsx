@@ -4,7 +4,7 @@ import Scroll from '../hooks/Scroll';
 import MenuNavbarButton from './MenuNavbarButton';
 import CartNavbarButton from './CartNavbarButton';
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   const isScrolled = Scroll();
 
   return (

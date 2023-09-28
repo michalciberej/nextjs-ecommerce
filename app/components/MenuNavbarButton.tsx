@@ -6,7 +6,7 @@ import Icon from '@mdi/react';
 import { mdiClose, mdiMenu, mdiChevronRight } from '@mdi/js';
 import Link from 'next/link';
 
-const MenuNavbarButton: React.FC = () => {
+const MenuNavbarButton = () => {
   const [isSidebarOpened, setIsSidebarOpened] = useState(false);
   const shouldRenderSidebar = useDelayUnmount(isSidebarOpened, 500);
 
@@ -36,11 +36,11 @@ const MenuNavbarButton: React.FC = () => {
               <span className=''>Close</span>
             </button>
             <nav>
-              <ul className='group flex flex-col w-full space-y-4 text-xl text-stone-800'>
+              <ul className='group flex flex-col w-full text-xl text-stone-800 transition-colors'>
                 <li>
                   <Link
                     href='/women-summer-2024'
-                    className='flex justify-between group-hover:text-stone-500 hover:!text-stone-800'>
+                    className='flex justify-between group-hover:text-stone-400 hover:!text-stone-800 leading-loose'>
                     <span className='nav-link-text '>Women Summer 2024</span>
                     <Icon
                       path={mdiChevronRight}
@@ -51,7 +51,7 @@ const MenuNavbarButton: React.FC = () => {
                 <li>
                   <Link
                     href='/women-summer-2024'
-                    className='flex justify-between group-hover:text-stone-500 hover:!text-stone-800'>
+                    className='flex justify-between group-hover:text-stone-400 hover:!text-stone-800 leading-loose'>
                     <span className='nav-link-text '>Women Autumn 2024</span>
                     <Icon
                       path={mdiChevronRight}

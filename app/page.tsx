@@ -5,7 +5,7 @@ import { mdiPause } from '@mdi/js';
 import { useRef } from 'react';
 import Image from '@/node_modules/next/image';
 
-const Home: React.FC = () => {
+const Home = () => {
   const video = useRef(null);
 
   //   const handlePauseVideo = () => {
