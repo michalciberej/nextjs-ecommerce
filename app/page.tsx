@@ -20,7 +20,7 @@ const Home: React.FC = () => {
             height='100%'
             src='/homepage-video.mp4'
             loop
-            autoPlay={true}
+            autoPlay={false}
             muted
             ref={video}
           />
@@ -47,7 +47,7 @@ const Home: React.FC = () => {
             height='100%'
             src='/homepage-video2.mp4'
             loop
-            autoPlay={true}
+            autoPlay={false}
             muted
             ref={video}
           />

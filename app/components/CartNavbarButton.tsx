@@ -6,7 +6,7 @@ import Icon from '@mdi/react';
 
 import { mdiClose, mdiCartOutline } from '@mdi/js';
 
-const CartNavbarButton = () => {
+const CartNavbarButton: React.FC = () => {
   const [isCartOpened, setIsCartOpened] = useState(false);
   const shouldRenderCart = useDelayUnmount(isCartOpened, 500);
 
