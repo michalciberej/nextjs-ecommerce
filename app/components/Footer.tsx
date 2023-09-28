@@ -12,7 +12,7 @@ const Footer = () => {
               <button>Stores</button>
             </li>
             <li>
-              <button>FAQ's</button>
+              <button>FAQ</button>
             </li>
           </ul>
         </div>
@@ -40,7 +40,7 @@ const Footer = () => {
               <button>Stores</button>
             </li>
             <li>
-              <button>FAQ's</button>
+              <button>FAQ</button>
             </li>
           </ul>
         </div>
@@ -57,8 +57,8 @@ const Footer = () => {
         </div>
       </div>
       <div className='flex pb-10'>
-        <h1 className='mx-auto text-3xl tracking-wider leading-tight font-bold'>
-          FAKE STORE
+        <h1 className='mx-auto text-xl tracking-wider leading-tight font-bold'>
+          Glamour Glow
         </h1>
       </div>
     </footer>

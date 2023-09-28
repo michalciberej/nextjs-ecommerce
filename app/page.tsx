@@ -5,7 +5,7 @@ import { mdiPause } from '@mdi/js';
 import { useRef } from 'react';
 import Image from '@/node_modules/next/image';
 
-const Home = () => {
+const Home: React.FC = () => {
   const video = useRef(null);
 
   //   const handlePauseVideo = () => {
@@ -69,31 +69,46 @@ const Home = () => {
       </section>
       <section>
         <div className='px-[10vw] py-20 flex flex-col text-center space-y-8'>
-          <h2 className='text-xl'>TEST</h2>
-          <div className='flex flex-wrap justify-between items-between'>
-            <div>
+          <h2 className='text-xl'></h2>
+          <div className='flex flex-wrap justify-between items-center text-sm '>
+            <div className='flex flex-col text-start space-y-4'>
               <Image
                 src={'/homepage-picture.jpg'}
                 alt='Picture of clothes'
-                width={400}
-                height={400}
+                width={500}
+                height={500}
+                quality={80}
               />
+              <h3 className='text-stone-500 text-xl'>Quality Products</h3>
+              <p className='text-stone-800'>
+                Our products are made from the best quality materials.
+              </p>
             </div>
-            <div>
+            <div className='flex flex-col text-start space-y-4'>
               <Image
-                src={'/homepage-picture.jpg'}
+                src={'/homepage-picture2.jpg'}
                 alt='Picture of clothes'
-                width={400}
-                height={400}
+                width={500}
+                height={500}
+                quality={80}
               />
+              <h3 className='text-stone-500 text-xl'>Ecology</h3>
+              <p className='text-stone-800'>
+                We only use nature friendly materials.
+              </p>
             </div>
-            <div>
+            <div className='flex flex-col text-start space-y-4'>
               <Image
-                src={'/homepage-picture.jpg'}
+                src={'/homepage-picture3.jpg'}
                 alt='Picture of clothes'
-                width={400}
-                height={400}
+                width={500}
+                height={500}
+                quality={80}
               />
+              <h3 className='text-stone-500 text-xl'>Custom Zippers</h3>
+              <p className='text-stone-800'>
+                We can push your monogram into our zippers!
+              </p>
             </div>
           </div>
         </div>
