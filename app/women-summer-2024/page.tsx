@@ -1,8 +1,9 @@
 import React from 'react';
 import Image from '@/node_modules/next/image';
 import ProductCard from '../components/ProductCard';
+import useDatabaseData from '../hooks/useDatabaseData';
 
-const fetchData = () => {
+const WomenSummer2024 = () => {
   const data = [
     {
       id: 1,
@@ -74,11 +75,6 @@ const fetchData = () => {
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias dolore iusto mollitia eos nemo sunt inventore quas pariatur sint necessitatibus animi, soluta architecto porro deserunt distinctio eum voluptates, odit quaerat.',
     },
   ];
-  return data;
-};
-
-const page = () => {
-  const data = fetchData();
 
   return (
     <main>
@@ -99,7 +95,7 @@ const page = () => {
             <React.Fragment key={el.id}>
               <ProductCard
                 picture={el.pictures}
-                url={el.name}
+                url={el.id}
               />
             </React.Fragment>
           ))}
@@ -109,4 +105,17 @@ const page = () => {
   );
 };
 
-export default page;
+export default WomenSummer2024;
+
+export const generateStaticParams = () => {
+  return [
+    { id: 1 },
+    { id: 2 },
+    { id: 3 },
+    { id: 4 },
+    { id: 5 },
+    { id: 6 },
+    { id: 7 },
+    { id: 8 },
+  ];
+};

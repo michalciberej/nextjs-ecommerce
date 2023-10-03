@@ -4,6 +4,7 @@ import Icon from '@mdi/react';
 import { mdiPause } from '@mdi/js';
 import { useRef } from 'react';
 import Image from '@/node_modules/next/image';
+import Link from 'next/link';
 
 const Home = () => {
   const video = useRef(null);
@@ -33,9 +34,11 @@ const Home = () => {
             </button>
             <div className='absolute left-1/2 -translate-x-1/2 bottom-0 mb-14 flex flex-col items-center justify-center space-y-4'>
               <h2 className='text-3xl'>Women Summer 2024 Collection</h2>
-              <button className='text-md rounded-full backdrop-blur-sm bg-transparent border-2 border-stone-200 px-4 py-2 hover:bg-stone-200 hover:text-stone-800 transition-all shadow-md'>
+              <Link
+                href={'/women-summer-2024'}
+                className='text-md rounded-full backdrop-blur-sm bg-transparent border-2 border-stone-200 px-4 py-2 hover:bg-stone-200 hover:text-stone-800 transition-all shadow-md'>
                 Browse the Collection
-              </button>
+              </Link>
             </div>
           </div>
         </div>

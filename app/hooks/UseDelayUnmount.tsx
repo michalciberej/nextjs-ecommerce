@@ -4,7 +4,7 @@ const useDelayUnmount = (isMounted: boolean, delayTime: number) => {
   const [shouldRender, setShouldRender] = useState(false);
 
   useEffect(() => {
-    let timeoutId: number;
+    let timeoutId: any;
     if (isMounted && !shouldRender) {
       setShouldRender(true);
     } else if (!isMounted && shouldRender) {

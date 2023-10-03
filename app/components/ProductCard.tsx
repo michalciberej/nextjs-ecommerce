@@ -1,8 +1,7 @@
-import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const ProductCard = ({ picture, url }: { picture: string; url: string }) => {
+const ProductCard = ({ picture, url }: { picture: string; url: number }) => {
   return (
     <Link
       href={`/women-summer-2024/${url}`}

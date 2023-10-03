@@ -1,11 +1,20 @@
 'use client';
 
-import Scroll from '../hooks/Scroll';
 import MenuNavbarButton from './MenuNavbarButton';
 import CartNavbarButton from './CartNavbarButton';
+import { useEffect, useState } from 'react';
 
 const Navbar = () => {
-  const isScrolled = Scroll();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) setIsScrolled(true);
+      else setIsScrolled(false);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <header>
