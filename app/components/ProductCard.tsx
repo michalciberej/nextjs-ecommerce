@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-const ProductCard = ({ picture, url }: { picture: string; url: number }) => {
+const ProductCard = ({ image, url }: { image: string; url: string }) => {
   return (
     <Link
       href={`/women-summer-2024/${url}`}
       className='flex justify-center items-center h-[400px] bg-gradient-to-tr from-stone-50 to-stone-200'>
       <Image
-        src={picture}
+        src={image}
         alt='picture'
         width={250}
         height={250}
