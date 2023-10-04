@@ -1,6 +1,6 @@
 import { ProductType } from '@/typings';
 
-const useDatabaseDataById = async (id: string) => {
+const getDatabaseDataById = async (id: string) => {
   const res = await fetch(
     `https://cloud.appwrite.io/v1/databases/${process.env.NEXT_PUBLIC_DATABASE_ID}/collections/${process.env.NEXT_PUBLIC_PRODUCTS_COLLECTION_ID}/documents/`,
     {
@@ -14,10 +14,10 @@ const useDatabaseDataById = async (id: string) => {
   )
     .then((response) => response.json())
     .catch((error) => console.error(error));
-  console.log(id);
+
   const product = res.documents.filter((obj: ProductType) => obj.id == id);
 
   return product[0];
 };
 
-export default useDatabaseDataById;
+export default getDatabaseDataById;

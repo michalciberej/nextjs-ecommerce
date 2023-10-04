@@ -1,4 +1,4 @@
-const useDatabaseData = async () => {
+const getDatabaseData = async () => {
   const res = await fetch(
     `https://cloud.appwrite.io/v1/databases/${process.env.NEXT_PUBLIC_DATABASE_ID}/collections/${process.env.NEXT_PUBLIC_PRODUCTS_COLLECTION_ID}/documents`,
     {
@@ -15,4 +15,4 @@ const useDatabaseData = async () => {
   return res;
 };
 
-export default useDatabaseData;
+export default getDatabaseData;

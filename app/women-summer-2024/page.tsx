@@ -1,11 +1,11 @@
 import React from 'react';
 import Image from '@/node_modules/next/image';
 import ProductCard from '../components/ProductCard';
-import useDatabaseData from '../hooks/useDatabaseData';
+import getDatabaseData from '../hooks/getDatabaseData';
 import { ProductType } from '@/typings';
 
 const WomenSummer2024 = async () => {
-  const { documents } = await useDatabaseData();
+  const { documents } = await getDatabaseData();
 
   return (
     <main>
@@ -41,7 +41,7 @@ const WomenSummer2024 = async () => {
 export default WomenSummer2024;
 
 export const generateStaticParams = async () => {
-  const staticParams = await useDatabaseData();
+  const staticParams = await getDatabaseData();
 
   return staticParams.documents.map((obj: ProductType) => ({ id: obj.id }));
 };

@@ -3,6 +3,7 @@
 import MenuNavbarButton from './MenuNavbarButton';
 import CartNavbarButton from './CartNavbarButton';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,9 +27,11 @@ const Navbar = () => {
         } z-50 py-6 transition-colors duration-300 text-md `}>
         <MenuNavbarButton />
         <div className='absolute top-0 left-1/2 -translate-x-1/2 py-5'>
-          <h1 className='text-3xl tracking-wider leading-tight font-bold'>
-            GLAMOUR GLOW
-          </h1>
+          <Link href={'/'}>
+            <h1 className='text-3xl tracking-wider leading-tight font-bold'>
+              GLAMOUR GLOW
+            </h1>
+          </Link>
         </div>
         <CartNavbarButton />
       </div>

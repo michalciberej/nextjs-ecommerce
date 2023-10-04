@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import useDatabaseDataById from '@/app/hooks/useDatabaseDataById';
+import getDatabaseDataById from '@/app/hooks/getDatabaseDataById';
 
 const ProductPage = async ({ params: { id } }: { params: { id: string } }) => {
-  const product = await useDatabaseDataById(id);
+  const product = await getDatabaseDataById(id);
   return (
     <>
       <main className='grid md:grid-cols-2'>
