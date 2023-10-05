@@ -1,17 +1,28 @@
 'use client';
 import Icon from '@mdi/react';
-import { mdiPause } from '@mdi/js';
+import { mdiPause, mdiPlay } from '@mdi/js';
 import Link from 'next/link';
 import { useRef, useState } from 'react';
 
-const Video = ({ video, linkUrl }) => {
+const Video = ({
+  video,
+  linkUrl,
+  children,
+}: {
+  video: string;
+  linkUrl: string;
+  children: string;
+}) => {
   const [isPlaying, setIsPlaying] = useState(true);
-  const videoRef = useRef();
+  const videoRef = useRef(null);
 
   const handleVideoControl = () => {
     if (isPlaying) {
       videoRef.current.pause();
-      setIsPlaying(!isPlaying);
+      setIsPlaying(false);
+    } else {
+      videoRef.current.play();
+      setIsPlaying(true);
     }
   };
 
@@ -21,11 +32,11 @@ const Video = ({ video, linkUrl }) => {
         <video
           width='100%'
           height='100%'
-          src='/homepage-video.mp4'
+          src={video}
           loop
           autoPlay={true}
           muted
-          ref={video}
+          ref={videoRef}
           className='h-full object-cover'
         />
       </div>
@@ -33,15 +44,20 @@ const Video = ({ video, linkUrl }) => {
         <button
           className='absolute left-0 right-auto bottom-0 z-40 m-14'
           onClick={handleVideoControl}>
-          <Icon
-            path={mdiPause}
-            size={0.75}
-          />
+          {isPlaying ? (
+            <Icon
+              path={mdiPause}
+              size={0.75}
+            />
+          ) : (
+            <Icon
+              path={mdiPlay}
+              size={0.75}
+            />
+          )}
         </button>
         <div className='absolute left-1/2 -translate-x-1/2 bottom-0 mb-14 flex flex-col items-center justify-center space-y-4'>
-          <h2 className='md:text-3xl font-semibold'>
-            Women Summer 2024 Collection
-          </h2>
+          <h2 className='text-2xl md:text-3xl'>{children}</h2>
           <Link
             href={linkUrl}
             className='text-md rounded-full backdrop-blur-xl bg-transparent border-2 border-stone-200 px-4 py-2 hover:bg-stone-200 hover:text-stone-800 transition-all shadow-md'>

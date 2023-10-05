@@ -15,20 +15,19 @@ const CartNavbarButton = () => {
   };
   return (
     <>
-      <div className='mr-[3vw]'>
-        <button
-          type='button'
-          onClick={handleCartToggle}>
-          <Icon
-            path={mdiCartOutline}
-            size={1}
-          />
-        </button>
-      </div>
+      <button
+        type='button'
+        onClick={handleCartToggle}
+        className='flex space-x-2 items-center justify-center mr-[3vw]'>
+        <Icon
+          path={mdiCartOutline}
+          size={1}
+        />
+      </button>
       {shouldRenderCart && (
         <>
           <div
-            className='fixed right-0 top-0 h-screen w-full md:w-1/3 lg:w-1/4 bg-stone-50 pr-[3vw] py-6 z-[70]'
+            className='fixed right-0 top-0 h-screen w-full md:w-1/2 lg:w-1/4 bg-stone-50 pr-[3vw] py-6 z-[70]'
             style={
               isCartOpened
                 ? { animation: 'inAnimationCart 500ms ease' }

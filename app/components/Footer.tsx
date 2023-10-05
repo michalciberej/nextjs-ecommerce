@@ -1,8 +1,10 @@
+import Link from '@/node_modules/next/link';
+
 const Footer = () => {
   return (
     <footer>
       <div className='flex border-t-2 border-stone-200 text-xs text-stone-800 px-[3vw] md:px-[10vw] justify-between py-20'>
-        <div className='flex flex-col items-start space-y-4'>
+        <div className='flex flex-col space-y-4'>
           <h3 className='text-stone-500'>HELP</h3>
           <ul className='space-y-2'>
             <li>
@@ -56,10 +58,10 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className='flex pb-10'>
-        <h1 className='mx-auto text-xl tracking-wider leading-tight font-bold'>
-          Glamour Glow
-        </h1>
+      <div className='flex justify-center mb-10'>
+        <Link href={'/'}>
+          <h1 className='text-xl tracking-widest font-bold'>Glamour Glow</h1>
+        </Link>
       </div>
     </footer>
   );
