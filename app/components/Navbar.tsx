@@ -10,12 +10,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <div
-        className={`w-full flex justify-between items-center fixed left-0 top-0 right-0 ${
-          isScrolled
-            ? 'bg-white text-stone-800 shadow-md'
-            : 'bg-transparent text-stone-200 hover:shadow-md hover:bg-white hover:text-black'
-        } z-50 py-3 md:py-6 transition-colors duration-300 text-md `}>
+      <div className='w-full flex justify-between items-center fixed left-0 top-0 right-0 bg-white text-stone-800 shadow-md z-50 py-3 md:py-6 transition-colors duration-300 text-md'>
         <MenuNavbarButton />
         <div className='absolute top-0 left-1/2 -translate-x-1/2 py-3 md:py-6 flex items-center'>
           <Link href={'/'}>

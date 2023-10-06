@@ -19,7 +19,7 @@ const MenuNavbarButton = () => {
       {shouldRenderSidebar && (
         <>
           <div
-            className={`fixed left-0 top-0 h-screen w-full md:w-1/2 lg:w-1/4 bg-stone-50 pl-[3vw] py-6 pr-[3vw] z-[70] space-y-5 flex flex-col justify-between`}
+            className={`fixed left-0 top-0 h-screen w-full md:w-1/2 lg:w-1/4 bg-white pl-[3vw] py-6 pr-[3vw] z-[70] space-y-5 flex flex-col justify-between`}
             style={
               isSidebarOpened
                 ? { animation: 'inAnimationSidebar 500ms ease' }

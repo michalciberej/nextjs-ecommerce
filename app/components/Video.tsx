@@ -28,7 +28,7 @@ const Video = ({
 
   return (
     <div className='relative overflow-hidden'>
-      <div className='w-[100vw] h-screen -mt-[5.5rem] md:-mt-0'>
+      <div className='-mt-[5.5rem] md:-mt-0 w-full h-screen'>
         <video
           width='100%'
           height='100%'
