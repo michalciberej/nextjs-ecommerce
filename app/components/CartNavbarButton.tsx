@@ -16,8 +16,8 @@ const CartNavbarButton = () => {
   const { carted, setCarted } = useCartContext();
   const shouldRenderCart = useDelayUnmount(isCartOpened, 500);
 
-  const totalQuantity = carted.reduce(
-    (acc, product) => (acc += product.quantity),
+  const totalQuantity: number = carted.reduce(
+    (acc: number, product: CartedProductType) => (acc += product.quantity),
     0
   );
 
