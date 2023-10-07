@@ -1,13 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
+import { mdiClose, mdiCartOutline, mdiTrashCanOutline } from '@mdi/js';
+import { useCartContext } from '../hooks/CartContext';
+import { CartedProductType } from '@/typings';
 import useDelayUnmount from '../hooks/UseDelayUnmount';
 import Image from 'next/image';
 import Icon from '@mdi/react';
 import Link from '@/node_modules/next/link';
-import { mdiClose, mdiCartOutline, mdiTrashCanOutline } from '@mdi/js';
-import { useCartContext } from '../hooks/CartContext';
-import { CartedProductType } from '@/typings';
 
 const bgColors = ['bg-slate-400', 'bg-blue-400', 'bg-orange-400'];
 
@@ -16,15 +16,40 @@ const CartNavbarButton = () => {
   const { carted, setCarted } = useCartContext();
   const shouldRenderCart = useDelayUnmount(isCartOpened, 500);
 
-  const updateProductQuantity = (product: CartedProductType) => {
+  const totalQuantity = carted.reduce(
+    (acc, product) => (acc += product.quantity),
+    0
+  );
+
+  const totalPrice: number = carted.reduce(
+    (acc: number, product: CartedProductType) =>
+      (acc += product.price * product.quantity),
+    0
+  );
+
+  const incrementProductQuantity = (product: CartedProductType) => {
     setCarted(
       carted.map((productToIncrement: CartedProductType) => {
         if (productToIncrement.id === product.id) {
-          return {
-            ...productToIncrement,
-            quantity: productToIncrement.quantity++,
-          };
+          productToIncrement.quantity++;
+          return productToIncrement;
         }
+        return productToIncrement;
+      })
+    );
+  };
+
+  const decrementProductQuantity = (product: CartedProductType) => {
+    setCarted(
+      carted.map((productToIncrement: CartedProductType) => {
+        if (
+          productToIncrement.id === product.id &&
+          productToIncrement.quantity > 1
+        ) {
+          productToIncrement.quantity--;
+          return productToIncrement;
+        }
+        return productToIncrement;
       })
     );
   };
@@ -34,11 +59,16 @@ const CartNavbarButton = () => {
       <button
         type='button'
         onClick={() => setIsCartOpened(!isCartOpened)}
-        className='flex space-x-2 items-center justify-center mr-[3vw]'>
+        className='relative flex space-x-2 items-center justify-center mr-[3vw]'>
         <Icon
           path={mdiCartOutline}
           size={1}
         />
+        {carted.length > 0 && (
+          <div className='absolute -right-3 -top-3 rounded-full p-1 bg-yellow-300 w-6 text-xs font-semibold'>
+            {<>{totalQuantity}</>}
+          </div>
+        )}
       </button>
       {shouldRenderCart && (
         <>
@@ -91,22 +121,21 @@ const CartNavbarButton = () => {
                       </div>
                       <div className='flex justify-between items-center'>
                         <div className='flex space-x-2 h-full'>
-                          <div>
+                          <div className='flex'>
                             <button
                               type='button'
-                              className='border border-stone-800 px-2'>
+                              onClick={() => decrementProductQuantity(product)}
+                              className='border border-stone-800 px-2 hover:bg-stone-50 focus:bg-stone-50 transition-colors'>
                               -
                             </button>
-                            <input
-                              type='number'
-                              value={product.quantity}
-                              className='border-y border-stone-800 px-2 w-6'
-                            />
+                            <div className='border-y border-stone-800 px-2 w-6'>
+                              {product.quantity}
+                            </div>
 
                             <button
                               type='button'
-                              onClick={() => updateProductQuantity(product)}
-                              className='border border-stone-800 px-2'>
+                              onClick={() => incrementProductQuantity(product)}
+                              className='border border-stone-800 px-2 hover:bg-stone-50 focus:bg-stone-50 transition-colors'>
                               +
                             </button>
                           </div>
@@ -143,17 +172,12 @@ const CartNavbarButton = () => {
             <div className='w-full space-y-4 border-t border-stone-400 pt-4'>
               <div className='flex justify-between'>
                 <span>Total</span>
-                <span>
-                  €{' '}
-                  {carted.reduce(
-                    (acc, product) => acc + product.price * product.quantity,
-                    0
-                  )}
-                </span>
+                <span>€ {<>{totalPrice}</>}</span>
               </div>
               <button
                 type='button'
-                className='text-lg w-full bg-stone-800 py-1 border-2 border-stone-800 text-stone-200 hover:text-stone-800 hover:bg-white transition-colors'>
+                disabled={carted.length > 0 ? false : true}
+                className='text-lg w-full bg-stone-800 text-white disabled:opacity-75 py-1 border-2 border-stone-800 enabled:hover:bg-white enabled:hover:text-stone-800 enabled:focus:bg-white enabled:focus:text-stone-800 transition-colors'>
                 Checkout
               </button>
             </div>
