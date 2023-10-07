@@ -19,30 +19,32 @@ const MenuNavbarButton = () => {
       {shouldRenderSidebar && (
         <>
           <div
-            className={`fixed left-0 top-0 h-screen w-full md:w-1/2 lg:w-1/4 bg-white pl-[3vw] py-6 pr-[3vw] z-[70] space-y-5 flex flex-col justify-between`}
+            className={`fixed left-0 top-0 h-screen w-full md:w-1/2 lg:w-1/4 bg-white px-[3vw] py-6 z-[70] space-y-5 flex flex-col justify-between`}
             style={
               isSidebarOpened
                 ? { animation: 'inAnimationSidebar 500ms ease' }
                 : { animation: 'outAnimationSidebar 510ms ease' }
             }>
             <div>
-              <button
-                type='button'
-                className='flex space-x-2 items-center justify-center mb-8 text-stone-800'
-                onClick={handleSidebarToggle}>
-                <Icon
-                  path={mdiClose}
-                  size={1}
-                />
-                <span className=''>Close</span>
-              </button>
+              <div className='flex justify-between items-center mb-8'>
+                <button
+                  type='button'
+                  className='flex space-x-2 items-center justify-center text-stone-800'
+                  onClick={handleSidebarToggle}>
+                  <Icon
+                    path={mdiClose}
+                    size={1}
+                  />
+                </button>
+                <span className='text-xl'>Menu</span>
+              </div>
               <nav>
-                <ul className='group flex flex-col w-full text-xl text-stone-800 transition-colors'>
+                <ul className='group flex flex-col w-full text-xl text-stone-800 transition-colors space-y-2'>
                   <li>
                     <Link
                       href='/women-summer-2024'
                       onClick={handleSidebarToggle}
-                      className='flex justify-between items-center group-hover:text-stone-400 hover:!text-stone-800 leading-loose'>
+                      className='flex justify-between items-center group-hover:text-stone-400 hover:!text-stone-800'>
                       <span className='nav-link-text '>Women Summer 2024</span>
                       <Icon
                         path={mdiChevronRight}
@@ -52,9 +54,9 @@ const MenuNavbarButton = () => {
                   </li>
                   <li>
                     <Link
-                      href='/women-summer-2024'
+                      href='/women-autumn-2024'
                       onClick={handleSidebarToggle}
-                      className='flex justify-between items-center group-hover:text-stone-400 hover:!text-stone-800 leading-loose'>
+                      className='flex justify-between items-center group-hover:text-stone-400 hover:!text-stone-800'>
                       <span className='nav-link-text '>Women Autumn 2024</span>
                       <Icon
                         path={mdiChevronRight}
@@ -65,8 +67,19 @@ const MenuNavbarButton = () => {
                 </ul>
               </nav>
             </div>
-            <div className='w-full border-t border-stone-400 text-stone-800 pt-5 flex flex-1'>
-              <h1>hello</h1>
+            <div>
+              <div className='border-t border-stone-400 text-stone-500 pt-5 flex text-lg flex-col'>
+                <Link
+                  href='/about-us'
+                  className='hover:text-stone-800 transition-colors'>
+                  About us
+                </Link>
+                <Link
+                  href='/contact-us'
+                  className='hover:text-stone-800 transition-colors'>
+                  Contact us
+                </Link>
+              </div>
             </div>
           </div>
           <div

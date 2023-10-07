@@ -23,7 +23,7 @@ const ProductForm = ({ product }: { product: ProductType }) => {
     title: product.title,
     id: product.id,
     collection: 'women-summer-2024', //change when updated database
-    price: 100, //change when updated database
+    price: product.price, //change when updated database
     quantity: 1,
     size: selectedSize,
     color: selectedColor,
@@ -51,12 +51,12 @@ const ProductForm = ({ product }: { product: ProductType }) => {
 
   return (
     <div className='relative '>
-      <div className='sticky top-80 px-[3vw] md:px-0 md:mx-auto md:max-w-xs lg:max-w-sm w-full flex justify-center flex-col space-y-4'>
-        <div className='text-lg flex justify-between '>
+      <div className='sticky top-80 px-[3vw] p-10 md:px-0 md:mx-auto md:max-w-xs lg:max-w-sm w-full flex justify-center flex-col space-y-4'>
+        <div className='text-lg flex justify-between'>
           <h2>{product.title}</h2>
-          <h2>100$</h2>
+          <h2>€ {product.price}</h2>
         </div>
-        <div className='flex flex-row md:flex-col justify-between md:space-y-4'>
+        <div className='flex flex-col justify-between md:space-y-4'>
           <div className='space-y-1'>
             <h3>Select color:</h3>
             <div className='flex space-x-2'>
@@ -106,7 +106,7 @@ const ProductForm = ({ product }: { product: ProductType }) => {
           type='button'
           onClick={handleAddToCart}
           disabled={isProperlySelected ? false : true}
-          className='text-lg bg-stone-800 text-white py-2 border-2 border-stone-800 enabled:hover:bg-white enabled:hover:text-stone-800 disabled:opacity-75 transition-colors'>
+          className='text-lg bg-stone-800 text-white py-2 border-2 border-stone-800 enabled:hover:bg-white enabled:hover:text-stone-800 enabled:focus:bg-white enabled:focus:text-stone-800 disabled:opacity-75 transition-colors'>
           Add to Cart
         </button>
       </div>

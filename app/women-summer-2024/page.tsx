@@ -10,25 +10,24 @@ const WomenSummer2024 = async () => {
   return (
     <main>
       <section>
-        <div className='h-screen w-full'>
+        <div className='w-full h-[100dvh]'>
           <Image
             src={'/women-summer-2024-hero.png'}
             alt='Picture of women wearing clothes from out summer 2024 collection'
             width={1920}
             height={1080}
-            className='w-full h-full'
+            className='h-full object-cover'
           />
         </div>
       </section>
       <section>
-        <div className='grid grid-cols-4'>
-          {documents.map((obj: ProductType) => {
-            if (obj.id.includes('WS24'))
+        <div className='grid md:grid-cols-2 lg:grid-cols-4'>
+          {documents.map((product: ProductType) => {
+            if (product.id.includes('WS24'))
               return (
                 <ProductCard
-                  image={obj.images[0]}
-                  url={obj.id}
-                  key={obj.id}
+                  product={product}
+                  key={product.id}
                 />
               );
           })}

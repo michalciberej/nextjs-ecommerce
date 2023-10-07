@@ -14,14 +14,14 @@ const Home = () => {
       <section>
         <Video
           video={'/homepage-video2.mp4'}
-          linkUrl={'/summer-autumn-2024'}>
+          linkUrl={'/women-autumn-2024'}>
           Women Autumn 2024
         </Video>
       </section>
       <section>
         <div className='px-[3vw] md:px-[10vw] py-20 flex flex-col text-center space-y-8'>
-          <div className='grid grid-cols-1 md:grid-cols-3 justify-between items-center text-sm space-y-8 lg:space-y-0 space-x-2'>
-            <div className='flex flex-col text-start space-y-4'>
+          <div className='mx-auto grid grid-cols-1 sm:grid-cols-3 justify-between items-center text-sm space-y-8 md:space-y-0 space-x-2'>
+            <div className='flex flex-col text-start space-y-4 md:space-y-0'>
               <Image
                 src={'/homepage-picture.jpg'}
                 alt='Picture of clothes'
@@ -35,7 +35,7 @@ const Home = () => {
                 Our products are made from the best quality materials.
               </p>
             </div>
-            <div className='flex flex-col text-start space-y-4'>
+            <div className='flex flex-col text-start space-y-4 md:space-y-0'>
               <Image
                 src={'/homepage-picture2.jpg'}
                 alt='Picture of clothes'
@@ -49,7 +49,7 @@ const Home = () => {
                 We only use nature friendly materials.
               </p>
             </div>
-            <div className='flex flex-col text-start space-y-4'>
+            <div className='flex flex-col text-start space-y-4 md:space-y-0'>
               <Image
                 src={'/homepage-picture3.jpg'}
                 alt='Picture of clothes'
@@ -59,7 +59,7 @@ const Home = () => {
                 className='w-full max-w-lg'
               />
               <h3 className='text-stone-500 text-xl'>Custom Zippers</h3>
-              <p className='text-stone-800'>
+              <p className='text-stone-800 max-w-'>
                 We can push your monogram into our zippers!
               </p>
             </div>

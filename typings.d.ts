@@ -3,6 +3,7 @@ export interface ProductType {
   id: string;
   images: string[];
   description: string;
+  price: number;
 }
 
 export interface CartedProductType {

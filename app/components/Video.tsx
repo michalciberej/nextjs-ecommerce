@@ -28,7 +28,7 @@ const Video = ({
 
   return (
     <div className='relative overflow-hidden'>
-      <div className='-mt-[5.5rem] md:-mt-0 w-full h-screen'>
+      <div className='w-full h-[100dvh]'>
         <video
           width='100%'
           height='100%'
@@ -60,7 +60,7 @@ const Video = ({
           <h2 className='text-2xl md:text-3xl'>{children}</h2>
           <Link
             href={linkUrl}
-            className='text-md rounded-full backdrop-blur-xl bg-transparent border-2 border-stone-200 px-4 py-2 hover:bg-stone-200 hover:text-stone-800 transition-all shadow-md'>
+            className='text-md rounded-full backdrop-blur-xl hover:backdrop-blur-0 bg-transparent border-2 border-stone-200 px-4 py-2 hover:bg-stone-200 hover:text-stone-800 transition-all shadow-md'>
             Browse the Collection
           </Link>
         </div>
