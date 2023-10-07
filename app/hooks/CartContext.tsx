@@ -4,14 +4,14 @@ import { CartedProductType } from '@/typings';
 import { useState, createContext, useContext } from 'react';
 
 type CartContextType = {
-  carted: CartedProductType[] | [];
-  setCarted: React.Dispatch<React.SetStateAction<CartedProductType[] | []>>;
+  carted: CartedProductType[];
+  setCarted: React.Dispatch<React.SetStateAction<CartedProductType[]>>;
 };
 
 const CartContext = createContext<CartContextType | null>(null);
 
 const CartContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const [carted, setCarted] = useState([]);
+  const [carted, setCarted] = useState<CartedProductType[]>([]);
 
   return (
     <CartContext.Provider value={{ carted, setCarted }}>
