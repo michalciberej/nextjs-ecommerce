@@ -2,9 +2,13 @@ import React from 'react';
 import Image from 'next/image';
 import getDatabaseDataById from '@/app/hooks/getDatabaseDataById';
 import ProductForm from '@/app/components/ProductForm';
+import { notFound } from 'next/navigation';
 
 const ProductPage = async ({ params: { id } }: { params: { id: string } }) => {
   const product = await getDatabaseDataById(id);
+
+  if (!product) notFound();
+
   return (
     <>
       <main className='grid md:grid-cols-2'>

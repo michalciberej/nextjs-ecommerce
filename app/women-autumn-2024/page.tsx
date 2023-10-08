@@ -3,7 +3,6 @@ import Image from '@/node_modules/next/image';
 import ProductCard from '../components/ProductCard';
 import getDatabaseData from '../hooks/getDatabaseData';
 import { ProductType } from '@/typings';
-import Video from '../components/Video';
 
 const WomenSummer2024 = async () => {
   const { documents } = await getDatabaseData();
