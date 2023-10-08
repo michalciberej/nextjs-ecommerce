@@ -95,7 +95,7 @@ const CartNavbarButton = () => {
               <div className='flex flex-col justify-between space-y-4'>
                 {carted.map((product: CartedProductType, index: number) => (
                   <div
-                    key={product.id + index}
+                    key={product.id + product.size + product.color}
                     className='flex shadow-md p-2 space-x-8 text-lg'>
                     <Link
                       onClick={() => setIsCartOpened(!isCartOpened)}
@@ -154,13 +154,17 @@ const CartNavbarButton = () => {
                             setCarted(
                               carted.filter(
                                 (productToDelete: CartedProductType) =>
-                                  productToDelete.id != product.id
+                                  !(
+                                    productToDelete.id === product.id &&
+                                    productToDelete.size === product.size &&
+                                    productToDelete.color === product.color
+                                  )
                               )
                             )
                           }>
                           <Icon
                             path={mdiTrashCanOutline}
-                            size={1.1}
+                            size={1}
                           />
                         </button>
                       </div>
