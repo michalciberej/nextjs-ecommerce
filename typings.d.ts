@@ -16,3 +16,16 @@ export interface CartedProductType {
   color: string;
   image: string;
 }
+
+export interface CustomerDataType {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: number | string;
+  address: string;
+}
+
+export interface OrderType {
+  customer: CustomerDataType;
+  orderedProducts: CartedProductType[];
+}
