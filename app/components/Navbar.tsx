@@ -1,13 +1,8 @@
-'use client';
-
 import CartNavbarButton from './CartNavbarButton';
 import MenuNavbarButton from './MenuNavbarButton';
 import Link from 'next/link';
-import useScroll from '../hooks/useScroll';
 
 const Navbar = () => {
-  const isScrolled = useScroll();
-
   return (
     <header>
       <div className='w-full flex justify-between items-center fixed left-0 top-0 right-0 bg-white text-stone-800 shadow-md z-50 py-3 md:py-6 transition-colors duration-300 text-md'>
