@@ -96,7 +96,7 @@ const CartNavbarButton = () => {
                 {carted.map((product: CartedProductType, index: number) => (
                   <div
                     key={product.id + product.size + product.color}
-                    className='flex shadow-md p-2 space-x-8 text-lg'>
+                    className='flex border border-stone-800 shadow-md p-2 space-x-8 text-lg'>
                     <Link
                       onClick={() => setIsCartOpened(!isCartOpened)}
                       href={`/${product.collection}/${product.id}?size=${product.size}&color=${product.color}`}>
@@ -173,17 +173,19 @@ const CartNavbarButton = () => {
                 ))}
               </div>
             </div>
-            <div className='w-full space-y-4 border-t border-stone-400 pt-4'>
-              <div className='flex justify-between'>
+            <div className='w-full border-t border-stone-400 pt-4'>
+              <div className='flex mb-3 justify-between'>
                 <span>Total</span>
                 <span>€ {<>{totalPrice}</>}</span>
               </div>
-              <button
-                type='button'
-                disabled={carted.length > 0 ? false : true}
-                className='text-lg w-full bg-stone-800 text-white disabled:opacity-75 py-1 border-2 border-stone-800 enabled:hover:bg-white enabled:hover:text-stone-800 enabled:focus:bg-white enabled:focus:text-stone-800 transition-colors'>
-                Checkout
-              </button>
+              <Link href='/checkout'>
+                <button
+                  type='button'
+                  disabled={carted.length > 0 ? false : true}
+                  className='text-lg w-full bg-stone-800 text-white disabled:opacity-75 py-1 border-2 border-stone-800 enabled:hover:bg-white enabled:hover:text-stone-800 enabled:focus:bg-white enabled:focus:text-stone-800 transition-colors'>
+                  Checkout
+                </button>
+              </Link>
             </div>
           </div>
           <div
