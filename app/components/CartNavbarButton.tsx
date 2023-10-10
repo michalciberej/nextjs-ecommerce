@@ -1,15 +1,17 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { mdiClose, mdiCartOutline, mdiTrashCanOutline } from '@mdi/js';
 import { useCartContext } from '../hooks/CartContext';
 import { CartedProductType } from '@/typings';
+import { incrementProductQuantity } from '../lib/IncrementProductQuantity';
+import { decrementProductQuantity } from '../lib/decrementProductQuantity';
 import useDelayUnmount from '../hooks/UseDelayUnmount';
 import Image from 'next/image';
 import Icon from '@mdi/react';
 import Link from '@/node_modules/next/link';
-
-const bgColors = ['bg-slate-400', 'bg-blue-400', 'bg-orange-400'];
+import ChangeSizeDropDown from './ChangeSizeDropDown';
+import ChangeColorDropDown from './ChangeColorDropDown';
 
 const CartNavbarButton = () => {
   const [isCartOpened, setIsCartOpened] = useState(false);
@@ -26,33 +28,6 @@ const CartNavbarButton = () => {
       (acc += product.price * product.quantity),
     0
   );
-
-  const incrementProductQuantity = (product: CartedProductType) => {
-    setCarted(
-      carted.map((productToIncrement: CartedProductType) => {
-        if (productToIncrement.id === product.id) {
-          productToIncrement.quantity++;
-          return productToIncrement;
-        }
-        return productToIncrement;
-      })
-    );
-  };
-
-  const decrementProductQuantity = (product: CartedProductType) => {
-    setCarted(
-      carted.map((productToIncrement: CartedProductType) => {
-        if (
-          productToIncrement.id === product.id &&
-          productToIncrement.quantity > 1
-        ) {
-          productToIncrement.quantity--;
-          return productToIncrement;
-        }
-        return productToIncrement;
-      })
-    );
-  };
 
   return (
     <>
@@ -93,9 +68,9 @@ const CartNavbarButton = () => {
                 </button>
               </div>
               <div className='flex flex-col justify-between space-y-4'>
-                {carted.map((product: CartedProductType, index: number) => (
+                {carted.map((product: CartedProductType, index) => (
                   <div
-                    key={product.id + product.size + product.color}
+                    key={product.id + product.size + product.color + index}
                     className='flex border border-stone-800 shadow-md p-2 space-x-8 text-lg'>
                     <Link
                       onClick={() => setIsCartOpened(!isCartOpened)}
@@ -124,7 +99,13 @@ const CartNavbarButton = () => {
                           <div className='flex'>
                             <button
                               type='button'
-                              onClick={() => decrementProductQuantity(product)}
+                              onClick={() =>
+                                decrementProductQuantity(
+                                  product,
+                                  setCarted,
+                                  carted
+                                )
+                              }
                               className='border border-stone-800 px-2 hover:bg-stone-50 focus:bg-stone-50 transition-colors'>
                               -
                             </button>
@@ -134,19 +115,19 @@ const CartNavbarButton = () => {
 
                             <button
                               type='button'
-                              onClick={() => incrementProductQuantity(product)}
+                              onClick={() =>
+                                incrementProductQuantity(
+                                  product,
+                                  setCarted,
+                                  carted
+                                )
+                              }
                               className='border border-stone-800 px-2 hover:bg-stone-50 focus:bg-stone-50 transition-colors'>
                               +
                             </button>
                           </div>
-                          <div className='border border-stone-800 px-2 flex justify-center items-center'>
-                            {product.size.toUpperCase()}
-                          </div>
-                          <div className='h-full p-0.5 border border-stone-800'>
-                            <div
-                              className={`bg-${product.color}-400 h-full w-8 `}
-                            />
-                          </div>
+                          <ChangeSizeDropDown product={product} />
+                          <ChangeColorDropDown product={product} />
                         </div>
                         <button
                           type='button'
@@ -182,6 +163,13 @@ const CartNavbarButton = () => {
                 <button
                   type='button'
                   disabled={carted.length > 0 ? false : true}
+                  onClick={() => {
+                    setIsCartOpened(!isCartOpened);
+                    localStorage.setItem(
+                      'cartedProducts',
+                      JSON.stringify(carted)
+                    );
+                  }}
                   className='text-lg w-full bg-stone-800 text-white disabled:opacity-75 py-1 border-2 border-stone-800 enabled:hover:bg-white enabled:hover:text-stone-800 enabled:focus:bg-white enabled:focus:text-stone-800 transition-colors'>
                   Checkout
                 </button>

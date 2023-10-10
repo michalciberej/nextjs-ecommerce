@@ -74,7 +74,7 @@ const ProductForm = ({ product }: { product: ProductType }) => {
                     selectedColor === color && 'border-stone-500'
                   }`}
                   key={index}>
-                  <div className={`w-full h-full bg-${color}-400`}></div>
+                  <div className={`w-full h-full bg-${color}-400`} />
                 </Link>
               ))}
             </div>

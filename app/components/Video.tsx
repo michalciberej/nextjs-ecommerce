@@ -8,10 +8,12 @@ const Video = ({
   video,
   linkUrl,
   children,
+  button,
 }: {
   video: string;
-  linkUrl: string;
-  children: string;
+  linkUrl?: string;
+  children?: string;
+  button: boolean;
 }) => {
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef(null);
@@ -56,14 +58,16 @@ const Video = ({
             />
           )}
         </button>
-        <div className='absolute left-1/2 -translate-x-1/2 bottom-0 mb-14 flex flex-col items-center justify-center space-y-4'>
-          <h2 className='text-2xl md:text-3xl'>{children}</h2>
-          <Link
-            href={linkUrl}
-            className='text-md rounded-full backdrop-blur-xl hover:backdrop-blur-0 bg-transparent border-2 border-stone-200 px-4 py-2 hover:bg-stone-200 hover:text-stone-800 transition-all shadow-md'>
-            Browse the Collection
-          </Link>
-        </div>
+        {button && (
+          <div className='absolute left-1/2 -translate-x-1/2 bottom-0 mb-14 flex flex-col items-center justify-center space-y-4'>
+            <h2 className='text-2xl md:text-3xl'>{children}</h2>
+            <Link
+              href={linkUrl}
+              className='text-md rounded-full backdrop-blur-xl hover:backdrop-blur-0 bg-transparent border-2 border-stone-200 px-4 py-2 hover:bg-stone-200 hover:text-stone-800 transition-all shadow-md'>
+              Browse the Collection
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
