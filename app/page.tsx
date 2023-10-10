@@ -7,14 +7,16 @@ const Home = () => {
       <section>
         <Video
           video={'/homepage-video.mp4'}
-          linkUrl={'/women-summer-2024'}>
+          linkUrl={'/women-summer-2024'}
+          button={true}>
           Women Summer 2024
         </Video>
       </section>
       <section>
         <Video
           video={'/homepage-video2.mp4'}
-          linkUrl={'/women-autumn-2024'}>
+          linkUrl={'/women-autumn-2024'}
+          button={true}>
           Women Autumn 2024
         </Video>
       </section>

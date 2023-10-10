@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import getDatabaseDataById from '@/app/hooks/getDatabaseDataById';
+import getDatabaseDataById from '@/app/lib/getDatabaseDataById';
 import ProductForm from '@/app/components/ProductForm';
 import { notFound } from 'next/navigation';
 
@@ -31,7 +31,7 @@ const ProductPage = async ({ params: { id } }: { params: { id: string } }) => {
         </div>
         <ProductForm product={product} />
       </main>
-      <div className='px-[3vw] md:px-[10vw] py-20'>{product.description}</div>
+      <div className='mx-[3vw] md:mx-[10vw] py-20'>{product.description}</div>
     </>
   );
 };

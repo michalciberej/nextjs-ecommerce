@@ -1,8 +1,12 @@
-import React from 'react';
-import Image from '@/node_modules/next/image';
-import ProductCard from '../components/ProductCard';
-import getDatabaseData from '../hooks/getDatabaseData';
 import { ProductType } from '@/typings';
+import ProductCard from '@/app/components/ProductCard';
+import getDatabaseData from '@/app/lib/getDatabaseData';
+import Video from '@/app/components/Video';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Women Summer 2024 | Glamour Glow',
+};
 
 const WomenSummer2024 = async () => {
   const { documents } = await getDatabaseData();
@@ -10,20 +14,15 @@ const WomenSummer2024 = async () => {
   return (
     <main>
       <section>
-        <div className='w-full h-[100dvh]'>
-          <Image
-            src={'/women-summer-2024-hero.png'}
-            alt='Picture of women wearing clothes from out summer 2024 collection'
-            width={1920}
-            height={1080}
-            className='h-full object-cover'
-          />
-        </div>
+        <Video
+          video='/homepage-video.mp4'
+          button={false}
+        />
       </section>
       <section>
         <div className='grid md:grid-cols-2 lg:grid-cols-4'>
           {documents.map((product: ProductType) => {
-            if (product.id.includes('WA24'))
+            if (product.id.includes('WS24'))
               return (
                 <ProductCard
                   product={product}
