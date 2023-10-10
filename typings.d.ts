@@ -26,6 +26,6 @@ export interface CustomerDataType {
 }
 
 export interface OrderType {
-  customer: CustomerDataType;
-  orderedProducts: CartedProductType[];
+  customer: string[];
+  orderedProducts: string[];
 }
