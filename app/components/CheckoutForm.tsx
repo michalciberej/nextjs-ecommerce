@@ -36,7 +36,7 @@ const CheckoutForm = () => {
 
   return (
     <form
-      className='flex flex-col space-y-2 lg:max-w-md w-full'
+      className='flex flex-col space-y-2 lg:max-w-md w-full font-sans'
       onSubmit={(e) => {
         e.preventDefault();
         SendOrderToDatabase(order);

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import getDatabaseDataById from '@/app/lib/getDatabaseDataById';
 import ProductForm from '@/app/components/ProductForm';
 import { notFound } from 'next/navigation';
+import ProductDescription from '@/app/components/ProductDescription';
 
 const ProductPage = async ({ params: { id } }: { params: { id: string } }) => {
   const product = await getDatabaseDataById(id);
@@ -31,7 +32,7 @@ const ProductPage = async ({ params: { id } }: { params: { id: string } }) => {
         </div>
         <ProductForm product={product} />
       </main>
-      <div className='mx-[3vw] md:mx-[10vw] py-20'>{product.description}</div>
+      <ProductDescription description={product.description} />
     </>
   );
 };

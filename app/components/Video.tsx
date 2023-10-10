@@ -44,6 +44,7 @@ const Video = ({
       </div>
       <div className='sticky bottom-0 text-stone-200 z-40 flex'>
         <button
+          aria-label='Pause/Play'
           className='absolute left-0 right-auto bottom-0 z-40 m-14'
           onClick={handleVideoControl}>
           {isPlaying ? (

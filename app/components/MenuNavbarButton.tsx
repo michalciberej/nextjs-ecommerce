@@ -28,6 +28,7 @@ const MenuNavbarButton = () => {
             <div>
               <div className='flex justify-between items-center mb-8'>
                 <button
+                  aria-label='Close'
                   type='button'
                   className='flex space-x-2 items-center justify-center text-stone-800'
                   onClick={handleSidebarToggle}>
@@ -90,6 +91,7 @@ const MenuNavbarButton = () => {
       )}
       <button
         type='button'
+        aria-label='Menu'
         className='flex space-x-2 items-center justify-center ml-[3vw]'
         onClick={handleSidebarToggle}>
         <Icon

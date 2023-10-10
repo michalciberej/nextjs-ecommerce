@@ -33,6 +33,7 @@ const CartNavbarButton = () => {
     <>
       <button
         type='button'
+        aria-label='Cart'
         onClick={() => setIsCartOpened(!isCartOpened)}
         className='relative flex space-x-2 items-center justify-center mr-[3vw]'>
         <Icon
