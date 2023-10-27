@@ -1,7 +1,5 @@
 # Ecommerce website
 
-![Image of landing page](https://imgur.com/a/Yx7ZEcc)
-
 [Live demo](https://nextjs-ecommerce-five-chi.vercel.app/)
 
 ## Built with
