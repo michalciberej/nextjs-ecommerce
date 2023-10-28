@@ -14,7 +14,6 @@
 - Responsive design.
 - Products are fetched from database.
 - Orders are sent to database on order completion.
--
 
 ## Development
 
